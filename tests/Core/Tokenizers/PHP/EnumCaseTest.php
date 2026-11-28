@@ -74,6 +74,7 @@ final class EnumCaseTest extends AbstractTokenizerTestCase
             'enum case, "default" as case name'                          => ['/* testKeywordAsEnumCaseNameShouldBeString6 */'],
             'enum case, "array" as case name'                            => ['/* testKeywordAsEnumCaseNameShouldBeString7 */'],
             'enum case, "exit" as case name'                             => ['/* testKeywordAsEnumCaseNameShouldBeString8 */'],
+            'enum case, after method named "switch"'                     => ['/* testEnumCaseAfterMethodNamedSwitch */'],
         ];
     }
 

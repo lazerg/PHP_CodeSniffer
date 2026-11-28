@@ -1366,6 +1366,22 @@ class PHP extends Tokenizer
                     }
 
                     if (($scope === 0 || $scope === 1) && $tokens[$i][0] === T_SWITCH) {
+                        // Get the previous non-empty token.
+                        for ($j = ($i - 1); $j > 0; $j--) {
+                            if (is_array($tokens[$j]) === false
+                                || isset(Tokens::EMPTY_TOKENS[$tokens[$j][0]]) === false
+                            ) {
+                                break;
+                            }
+                        }
+
+                        if (is_array($tokens[$j]) === true
+                            && isset(static::T_STRING_CONTEXTS[$tokens[$j][0]]) === true
+                        ) {
+                            // Not a switch statement, but a name, like a method named "switch".
+                            continue;
+                        }
+
                         $switchCases[$stackPtr] = true;
                         break;
                     }

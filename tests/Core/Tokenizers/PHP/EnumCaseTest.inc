@@ -131,3 +131,14 @@ enum Foo: string {
     /* testKeywordAsEnumCaseNameShouldBeString8 */
     case EXIT = 'exit';
 }
+
+enum MethodNamedSwitch: string
+{
+    public function switch($a)
+    {
+        return $a;
+    }
+
+    /* testEnumCaseAfterMethodNamedSwitch */
+    case Bar = 'bar';
+}

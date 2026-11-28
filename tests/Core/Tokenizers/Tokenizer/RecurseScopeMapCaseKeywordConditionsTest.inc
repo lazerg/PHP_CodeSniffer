@@ -125,6 +125,17 @@ enum Foo: string {
     case EXIT = 'exit';
 }
 
+enum MethodNamedSwitch: string
+{
+    public function switch($a)
+    {
+        return $a;
+    }
+
+    /* testEnumCaseAfterMethodNamedSwitch */
+    case Bar = 'bar';
+}
+
 // Test for https://github.com/squizlabs/PHP_CodeSniffer/issues/497
 switch ($value):
     /* testSwitchCaseScopeCloserSharedWithSwitch */
